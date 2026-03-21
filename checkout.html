@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adquirir Licença — WebCapture PRO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #060a14;
+      --surface: #0f1829;
+      --surf2:   #121f36;
+      --border:  rgba(255,255,255,0.07);
+      --blue:    #4f8ef7;
+      --green:   #059669;
+      --teal:    #0d9488;
+      --purple:  #7c3aed;
+      --text:    #eef1f8;
+      --muted:   #7b91b8;
+      --radius:  14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(180deg, #0a1018 0%, #0f1829 100%);
+      border-bottom: 1px solid var(--border);
+      border-top: 3px solid var(--blue);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #4f8ef7 0%, #7c3aed 100%);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 20px rgba(79,142,247,0.4);
+    }
+    .brand-name { font-size: 20px; font-weight: 800; color: var(--text); }
+    .brand-sub  { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #eef1f8 0%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── CARDS ── */
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .plan-card.permanent::before { background: linear-gradient(90deg, #4f8ef7, #7c3aed); }
+    .plan-card.donation::before  { background: linear-gradient(90deg, #059669, #0d9488); }
+
+    .plan-card:hover {
+      border-color: rgba(79,142,247,0.3);
+      box-shadow: 0 12px 40px rgba(79,142,247,0.12);
+    }
+
+    .plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .plan-card.permanent .plan-badge {
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--blue);
+    }
+    .plan-card.donation .plan-badge {
+      background: rgba(5,150,105,0.12);
+      border: 1px solid rgba(5,150,105,0.3);
+      color: #34d399;
+    }
+
+    .plan-name {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .plan-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .plan-features li {
+      font-size: 13px;
+      color: var(--text);
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .feat-icon { font-size: 15px; flex-shrink: 0; }
+
+    .pay-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .pay-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Botões de pagamento */
+    .pay-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+      letter-spacing: 0.2px;
+      color: #fff;
+    }
+    .pay-btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+    .pay-btn:active { transform: translateY(0); filter: brightness(0.95); }
+
+    .btn-stripe {
+      background: linear-gradient(135deg, #635bff 0%, #4f46e5 100%);
+      box-shadow: 0 4px 16px rgba(99,91,255,0.35);
+    }
+    .btn-mp {
+      background: linear-gradient(135deg, #00b1ea 0%, #009ee3 100%);
+      box-shadow: 0 4px 16px rgba(0,158,227,0.35);
+    }
+
+    .stripe-logo {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    /* ── COMO FUNCIONA ── */
+    .how {
+      max-width: 760px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+    .how h2 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .step-num {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px;
+      color: #fff;
+      margin: 0 auto 12px;
+    }
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand-icon">📸</div>
+  <div>
+    <div class="brand-name">WebCapture PRO</div>
+    <div class="brand-sub">Licença Oficial</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">🔒 Pagamento 100% seguro via Stripe</div>
+  <h1>Escolha seu plano e capture sem limites</h1>
+  <p>Capture páginas completas, gere PDFs e PNGs profissionais. Licença vinculada ao seu computador — sem assinatura mensal.</p>
+</div>
+
+<div class="plans">
+
+  <!-- LICENÇA PERMANENTE -->
+  <div class="plan-card permanent">
+    <div class="plan-badge">⭐ MAIS POPULAR</div>
+    <div class="plan-name">Licença Permanente</div>
+    <div class="plan-desc">
+      Acesso vitalício a todas as funcionalidades PRO e atualizações futuras. Pague uma vez, use para sempre.
+    </div>
+    <ul class="plan-features">
+      <li><span class="feat-icon">✅</span> Capturas ilimitadas em PDF e PNG</li>
+      <li><span class="feat-icon">✅</span> Captura de página inteira</li>
+      <li><span class="feat-icon">✅</span> Processamento em lote</li>
+      <li><span class="feat-icon">✅</span> Nome de arquivo personalizado</li>
+      <li><span class="feat-icon">✅</span> Atualizações vitalícias</li>
+      <li><span class="feat-icon">✅</span> Suporte prioritário</li>
+    </ul>
+    <div class="pay-buttons">
+      <!-- ⚠️ Substitua o href pelo seu Payment Link do Stripe -->
+      <a class="pay-btn btn-stripe" href="https://buy.stripe.com/5kQaEW6Uc5fY4585OZ5Ne02" target="_blank">
+        <span class="stripe-logo">S</span> Comprar com Stripe
+      </a>
+    </div>
+  </div>
+
+  <!-- DOAÇÃO 90 DIAS -->
+  <div class="plan-card donation">
+    <div class="plan-badge">💚 APOIE O PROJETO</div>
+    <div class="plan-name">Doação — 90 dias PRO</div>
+    <div class="plan-desc">
+      Apoie o desenvolvimento e ganhe 90 dias de acesso PRO completo. Sua contribuição faz diferença!
+    </div>
+    <ul class="plan-features">
+      <li><span class="feat-icon">✅</span> 90 dias de acesso PRO</li>
+      <li><span class="feat-icon">✅</span> Todas as funcionalidades PRO</li>
+      <li><span class="feat-icon">✅</span> Capturas ilimitadas em PDF e PNG</li>
+      <li><span class="feat-icon">✅</span> Processamento em lote</li>
+      <li><span class="feat-icon">✅</span> Nome de arquivo personalizado</li>
+      <li><span class="feat-icon">💚</span> Apoia o desenvolvedor</li>
+    </ul>
+    <div class="pay-buttons">
+      <!-- ⚠️ Substitua o href pelo seu Payment Link do Stripe (doação) -->
+      <a class="pay-btn btn-stripe" href="https://buy.stripe.com/bJe28qcewbEm1X0cdn5Ne03" target="_blank">
+        <span class="stripe-logo">S</span> Doar com Stripe
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="how">
+  <h2>Como funciona em 4 passos</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Escolha o plano</div>
+      <div class="step-desc">Permanente ou Doação 90 dias</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Pague com segurança</div>
+      <div class="step-desc">Via Stripe — rápido e seguro</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Cole seu Machine ID</div>
+      <div class="step-desc">Copie da aba Licença na extensão</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Ative na extensão</div>
+      <div class="step-desc">Cole a chave e pronto — acesso imediato</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>WebCapture PRO &copy; 2025 — Pagamentos processados com segurança por <strong>Stripe</strong>.</p>
+  <p style="margin-top:8px">Dúvidas? <a href="mailto:SEU_EMAIL">Entre em contato</a></p>
+</footer>
+
+</body>
+</html>
