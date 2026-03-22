@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — WebCapture PRO</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #060a14;
+      color: #cdd6f4;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    header {
+      background: linear-gradient(180deg, #0a1018 0%, #0f1829 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #4f8ef7;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .logo { font-size: 28px; font-weight: 800; color: #4f8ef7; letter-spacing: -0.5px; }
+    .logo span { color: #93c5fd; }
+    .logo-sub { font-size: 12px; color: #7b91b8; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #eef1f8;
+      margin-bottom: 8px;
+    }
+    .last-updated {
+      font-size: 12px;
+      color: #7b91b8;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4f8ef7;
+      margin: 36px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p { margin-bottom: 14px; color: #a8b8d8; }
+
+    ul {
+      margin: 8px 0 16px 20px;
+      color: #a8b8d8;
+    }
+    ul li { margin-bottom: 8px; }
+    ul li strong { color: #eef1f8; }
+
+    .highlight {
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.25);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      color: #93c5fd;
+      font-size: 14px;
+    }
+    .highlight strong { color: #eef1f8; }
+
+    .contact-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 40px;
+    }
+    .contact-box p { margin: 0; }
+    .contact-box a { color: #4f8ef7; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">WebCapture <span>PRO</span></div>
+  <div class="logo-sub">Privacy Policy</div>
+</header>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: March 2025 &nbsp;·&nbsp; Effective immediately upon installation</p>
+
+  <div class="highlight">
+    <strong>Summary:</strong> WebCapture PRO does not collect, transmit, or share any personal data.
+    All data generated or stored by this extension remains exclusively on your device.
+  </div>
+
+  <h2>1. What We Collect</h2>
+  <p>WebCapture PRO <strong style="color:#eef1f8">does not collect any personal information</strong>. The extension does not send any data to external servers, analytics services, or third parties of any kind.</p>
+
+  <h2>2. Data Stored Locally on Your Device</h2>
+  <p>To function correctly, the extension stores the following data <strong style="color:#eef1f8">only on your local device</strong> using the Chrome <code style="color:#93c5fd">chrome.storage.local</code> API:</p>
+  <ul>
+    <li><strong>User preferences</strong> — save mode, file naming settings, counter, header visibility, font sizes.</li>
+    <li><strong>License information</strong> — activation key, installation date, and a locally generated machine identifier (a random hash created at install time, never transmitted externally).</li>
+    <li><strong>Temporary capture data</strong> — screenshot image data stored briefly while the editor tab loads, automatically purged within 5 minutes.</li>
+  </ul>
+  <p>None of this data leaves your device under any circumstances.</p>
+
+  <h2>3. File Downloads</h2>
+  <p>When you capture a screenshot and save it, the resulting file (PDF or PNG) is saved to your computer via the Chrome <code style="color:#93c5fd">chrome.downloads</code> API. This operation is entirely local. No copy of the file is sent anywhere.</p>
+
+  <h2>4. Host Permissions</h2>
+  <p>WebCapture PRO requests the <code style="color:#93c5fd">&lt;all_urls&gt;</code> host permission. This permission is required solely to inject the screen capture script into any webpage the user chooses to capture. The extension does not read, transmit, or store the content of visited pages beyond what is visible in the current browser tab at the moment of capture.</p>
+
+  <h2>5. No Analytics or Tracking</h2>
+  <p>WebCapture PRO contains no analytics, telemetry, crash reporting, usage tracking, or advertising code of any kind. There are no third-party SDKs or trackers embedded in the extension.</p>
+
+  <h2>6. Payment Processing</h2>
+  <p>License purchases are processed externally through <strong style="color:#eef1f8">Stripe</strong> via a payment link that opens in a new browser tab. WebCapture PRO does not handle, store, or have access to any payment or billing information. Stripe's own privacy policy applies to that transaction.</p>
+  <p>After payment, you receive a license activation key which you enter manually in the extension. This key is validated entirely on your local device using a deterministic algorithm — no server call is made during activation.</p>
+
+  <h2>7. Permissions Justification</h2>
+  <ul>
+    <li><strong>activeTab / scripting / &lt;all_urls&gt;</strong> — to inject the capture script into the active webpage.</li>
+    <li><strong>downloads</strong> — to save captured files (PDF/PNG) to your Downloads folder.</li>
+    <li><strong>storage / unlimitedStorage</strong> — to persist user preferences and temporarily hold large screenshot data locally.</li>
+    <li><strong>tabs</strong> — to open the editor page and manage batch capture workflows.</li>
+    <li><strong>clipboardWrite</strong> — to support the "Copy to Clipboard" capture mode.</li>
+  </ul>
+
+  <h2>8. Children's Privacy</h2>
+  <p>WebCapture PRO is not directed at children under the age of 13. We do not knowingly collect any information from children.</p>
+
+  <h2>9. Changes to This Policy</h2>
+  <p>If we make material changes to this Privacy Policy, we will update the "Last updated" date above. Continued use of the extension after such changes constitutes your acceptance of the revised policy.</p>
+
+  <h2>10. Contact</h2>
+  <div class="contact-box">
+    <p>If you have any questions or concerns about this Privacy Policy, please contact:</p>
+    <p style="margin-top:10px"><strong style="color:#eef1f8">WebCapture PRO</strong><br>
+    Email: <a href="mailto:promettheus@gmail.com">promettheus@gmail.com</a></p>
+  </div>
+
+</main>
+
+<footer>
+  © 2025 WebCapture PRO · All rights reserved
+</footer>
+
+</body>
+</html>
